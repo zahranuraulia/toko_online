@@ -46,9 +46,13 @@ class _LoginViewState extends State<LoginView> {
               child: SizedBox(
                 height: 120,
                 child: Image.asset(
-                  'assets/logoPinkJelly.png', 
+                  'assets/logoPinkJelly.png',
                   fit: BoxFit.contain,
-                  errorBuilder: (context, error, stackTrace) => Icon(Icons.image_not_supported, size: 80, color: primaryPink),
+                  errorBuilder: (context, error, stackTrace) => Icon(
+                    Icons.image_not_supported,
+                    size: 80,
+                    color: primaryPink,
+                  ),
                 ),
               ),
             ),
@@ -70,16 +74,30 @@ class _LoginViewState extends State<LoginView> {
                 key: formKey,
                 child: Column(
                   children: [
-                    Text("Welcome Back!", style: GoogleFonts.poppins(fontSize: 24, fontWeight: FontWeight.w800, color: primaryPink)),
+                    Text(
+                      "Welcome Back!",
+                      style: GoogleFonts.poppins(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w800,
+                        color: primaryPink,
+                      ),
+                    ),
                     const SizedBox(height: 8),
-                    Text("Silahkan masuk ke akun anda", style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey[500])),
+                    Text(
+                      "Silahkan masuk ke akun anda",
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        color: Colors.grey[500],
+                      ),
+                    ),
                     const SizedBox(height: 30),
 
                     // EMAIL
                     TextFormField(
                       controller: email,
                       decoration: _inputStyle("Email", Icons.email_outlined),
-                      validator: (value) => value!.isEmpty ? 'Email harus diisi' : null,
+                      validator: (value) =>
+                          value!.isEmpty ? 'Email harus diisi' : null,
                     ),
                     const SizedBox(height: 20),
 
@@ -87,8 +105,13 @@ class _LoginViewState extends State<LoginView> {
                     TextFormField(
                       controller: password,
                       obscureText: showPass,
-                      decoration: _inputStyle("Password", Icons.lock_outline, isPassword: true),
-                      validator: (value) => value!.isEmpty ? 'Password harus diisi' : null,
+                      decoration: _inputStyle(
+                        "Password",
+                        Icons.lock_outline,
+                        isPassword: true,
+                      ),
+                      validator: (value) =>
+                          value!.isEmpty ? 'Password harus diisi' : null,
                     ),
                     const SizedBox(height: 30),
 
@@ -99,42 +122,57 @@ class _LoginViewState extends State<LoginView> {
                       child: MaterialButton(
                         onPressed: _handleLogin,
                         color: primaryPink,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                        child: isLoading 
-                          ? const CircularProgressIndicator(color: Colors.white) 
-                          : Text("LOGIN", style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.bold)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: isLoading
+                            ? const CircularProgressIndicator(
+                                color: Colors.white,
+                              )
+                            : Text(
+                                "LOGIN",
+                                style: GoogleFonts.poppins(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                       ),
                     ),
-                    
+
                     const SizedBox(height: 24),
 
                     // --- TOMBOL MENUJU REGISTER ---
-Row(
-  mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-    Text(
-      "Belum punya akun? ",
-      style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey[600]),
-    ),
-    GestureDetector(
-      onTap: () {
-        // MENGGUNAKAN MATERIAL PAGE ROUTE AGAR PASTI BISA PINDAH HALAMAN
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const RegisterUserView()),
-        );
-      },
-      child: Text(
-        "Daftar Sekarang",
-        style: GoogleFonts.poppins(
-          fontSize: 14,
-          fontWeight: FontWeight.bold,
-          color: primaryPink, // Warna pink sesuai tema
-        ),
-      ),
-    ),
-  ],
-),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Belum punya akun? ",
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            // MENGGUNAKAN MATERIAL PAGE ROUTE AGAR PASTI BISA PINDAH HALAMAN
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const RegisterUserView(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "Daftar Sekarang",
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: primaryPink, // Warna pink sesuai tema
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -145,31 +183,52 @@ Row(
     );
   }
 
-  InputDecoration _inputStyle(String label, IconData icon, {bool isPassword = false}) {
+  InputDecoration _inputStyle(
+    String label,
+    IconData icon, {
+    bool isPassword = false,
+  }) {
     return InputDecoration(
       labelText: label,
       labelStyle: GoogleFonts.poppins(color: Colors.grey[600]),
       filled: true,
       fillColor: const Color(0xFFFAFAFA),
       prefixIcon: Icon(icon, color: primaryPink),
-      suffixIcon: isPassword ? IconButton(
-        icon: Icon(showPass ? Icons.visibility_off : Icons.visibility, color: primaryPink),
-        onPressed: () => setState(() => showPass = !showPass),
-      ) : null,
-      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(15), borderSide: BorderSide.none),
-      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(15), borderSide: BorderSide(color: primaryPink, width: 1.5)),
+      suffixIcon: isPassword
+          ? IconButton(
+              icon: Icon(
+                showPass ? Icons.visibility_off : Icons.visibility,
+                color: primaryPink,
+              ),
+              onPressed: () => setState(() => showPass = !showPass),
+            )
+          : null,
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide.none,
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(color: primaryPink, width: 1.5),
+      ),
     );
   }
 
   void _handleLogin() async {
     if (formKey.currentState!.validate()) {
       setState(() => isLoading = true);
-      var result = await user.loginUser({"email": email.text, "password": password.text});
+      var result = await user.loginUser({
+        "email": email.text,
+        "password": password.text,
+      });
       setState(() => isLoading = false);
 
       if (result.status == true) {
         AlertMessage().showAlert(context, result.message, true);
-        Future.delayed(const Duration(seconds: 2), () => Navigator.pushReplacementNamed(context, '/dashboard'));
+        Future.delayed(
+          const Duration(seconds: 2),
+          () => Navigator.pushReplacementNamed(context, '/dashboard'),
+        );
       } else {
         AlertMessage().showAlert(context, result.message, false);
       }

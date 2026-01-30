@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:toko_online/views/dashboard.dart';
 import 'package:toko_online/views/login_view.dart';
+import 'package:toko_online/views/produk_view.dart';
+import 'package:toko_online/views/transaksi_view.dart';
 import 'package:toko_online/views/register_user_views.dart';
 
 void main() {
@@ -10,6 +12,8 @@ void main() {
       '/': (context) => RegisterUserView(),
       '/login': (context) => LoginView(),
       '/dashboard': (context) => DashboardView(),
+      '/produk': (context) => ProdukView(),
+      '/transaksi': (context) => TransaksiView(),
     },
   ));
 }
