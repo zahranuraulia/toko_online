@@ -21,7 +21,7 @@ class _RegisterUserViewState extends State<RegisterUserView> {
   bool isPasswordVisible = false;
   bool isLoading = false;
   String? role;
-  List<String> roleChoice = ["admin", "kasir"];
+  List<String> roleChoice = ["user", "admin"];
 
   final Color primaryColor = const Color(0xFFF6A5C0);
   final Color backgroundColor = const Color(0xFFFDF0F2);

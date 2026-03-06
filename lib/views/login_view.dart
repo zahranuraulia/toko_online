@@ -233,5 +233,5 @@ class _LoginViewState extends State<LoginView> {
         AlertMessage().showAlert(context, result.message, false);
       }
     }
-  }
+  }      
 }

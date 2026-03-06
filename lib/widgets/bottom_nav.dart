@@ -12,7 +12,7 @@ class BottomNav extends StatefulWidget {
 }
 
 class _BottomNavState extends State<BottomNav> {
-  String role = 'kasir';
+  String role = 'admin';
   bool isLoading = true;
 
   @override
@@ -48,7 +48,7 @@ class _BottomNavState extends State<BottomNav> {
         role = directRole.trim().toLowerCase();
       }
     } catch (e) {
-      role = 'kasir';
+      role = 'admin';
     }
 
     setState(() {
@@ -60,7 +60,7 @@ class _BottomNavState extends State<BottomNav> {
     if (index == 0) return '/dashboard';
 
     if (index == 1) {
-      return role == 'admin' ? '/produk' : '/transaksi';
+      return role == 'user' ? '/transaksi' : '/produk';
     }
 
     return '/dashboard';
