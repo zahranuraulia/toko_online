@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:toko_online/views/cart_screen.dart';
 import 'package:toko_online/views/dashboard.dart';
+import 'package:toko_online/views/history_view.dart';
 import 'package:toko_online/views/login_view.dart';
+import 'package:toko_online/views/pesan_view.dart';
 import 'package:toko_online/views/product_view.dart';
-import 'package:toko_online/views/transaksi_view.dart';
 import 'package:toko_online/views/register_user_views.dart';
 
 void main() {
@@ -13,7 +15,9 @@ void main() {
       '/login': (context) => LoginView(),
       '/dashboard': (context) => DashboardView(),
       '/produk': (context) => ProductView(),
-      '/transaksi': (context) => TransaksiView(),
+      '/pesan': (context) => PesanView(),
+      '/cartScreen': (context) => CartScreen(),
+      '/history': (context) => HistoryView(),
     },
   ));
 }

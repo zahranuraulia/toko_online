@@ -84,7 +84,7 @@ class _DashboardViewState extends State<DashboardView> {
           ),
         ),
       ),
-      bottomNavigationBar: const BottomNav(0),
+      bottomNavigationBar: BottomNav(0),
     );
   }
 
